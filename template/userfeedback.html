@@ -1,0 +1,30 @@
+{% extends 'userbase.html' %}	
+{% block content %}
+<style>
+td,th{
+    padding: 10px;;
+}
+</style>
+<div style="margin: 50px 20px 20px 150px;">
+    <h1>Work requests</h1><br>
+							<form method="POST">
+                                {% csrf_token %}
+                            <table>
+								<tr>
+                                    <td>Enter your feedback</td>
+                                    <td><textarea name="txtFeedback"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input type="submit" value="Submit"></td>
+                                </tr>
+                            </table>
+                            </form>
+                        </div>	
+                        <script>
+                            msg="{{msg}}";
+                            if(msg!="")
+                              alert(msg);
+                              
+                            </script>					
+{% endblock %}	

@@ -1,0 +1,38 @@
+{% extends 'mechanicbase.html' %}	
+{% block content %}
+<style>
+td,th{
+    padding: 10px;;
+}
+</style>
+<div style="margin: 50px 20px 20px 150px;">
+    <h1>Work request</h1><br>
+							<form method="POST">
+                                {% csrf_token %}
+                            <table border="1">
+                                <tr>
+                                    <th>CUSTOMER</th>
+                                    <th>CONTACT</th>
+                                    <th colspan="3">WORK DESCRIPTION</th>
+                                    
+                                </tr>
+                                {% for d in data %}
+								<tr>
+                                    <td>{{d.7}}</td>
+                                    <td>{{d.8}}</td>
+                                    <td>{{d.2}}</td>
+                                    <td><a href="/mechanicapprovework?id={{d.0}}&status=accepted">Accept</a></td>
+                                    <td><a href="/mechanicapprovework?id={{d.0}}&status=rejected">Reject</a></td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </table>
+                            </form>
+                        </div>	
+                        <script>
+                            msg="{{msg}}";
+                            if(msg!="")
+                              alert(msg);
+                              
+                            </script>					
+{% endblock %}	

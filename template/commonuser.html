@@ -1,0 +1,26 @@
+{% extends 'commonbase.html' %}	
+{% block content %}
+<style>
+td,th{
+    padding: 10px;;
+}
+</style>
+<div style="margin: 50px 20px 20px 380px;">
+    <h1>User registration</h1><br>
+							<form method="POST">
+								{% csrf_token %}
+                            <table>
+								<tr><td>Name</td><td><input type="text" name="txtName"  required pattern="[a-zA-Z ]+"/></td></tr>
+								<tr><td>Contact</td><td><input type="text" name="txtContact"  required pattern="[6789][0-9]{9}"/></td></tr>
+                                <tr><td>Email</td><td><input type="email" name="txtEmail"  required/></td></tr>
+                                <tr><td>Password</td><td><input type="password" name="txtPassword"  required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"/></td></tr>
+                                <tr><td colspan="2"><input type="submit" value="REGISTER" ></td></tr>
+                            </table>
+							</form>
+						</div>
+<script>
+var msg="{{msg}}"
+if(msg!="")
+	alert(msg)
+</script>						
+{% endblock %}	

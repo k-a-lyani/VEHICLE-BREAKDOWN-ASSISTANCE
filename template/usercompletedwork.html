@@ -1,0 +1,36 @@
+{% extends 'userbase.html' %}	
+{% block content %}
+<style>
+td,th{
+    padding: 10px;;
+}
+</style>
+<div style="margin: 50px 20px 20px 150px;">
+    <h1>Profile</h1><br>
+							<form method="POST">
+                                {% csrf_token %}
+                            <table border="1">
+                                <tr>
+                                    <th>WORKER</th>
+                                    <th>CONTACT</th>
+                                    <th colspan="2">WORK DESCRIPTION</th>
+                                    
+                                </tr>
+                                {% for d in data %}
+								<tr>
+                                    <td>{{d.7}}</td>
+                                    <td>{{d.8}}</td>
+                                    <td>{{d.2}}</td>
+                                    <td><a href="/userfeedback?id={{d.0}}">Add feedback</a></td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </table>
+                            </form>
+                        </div>	
+                        <script>
+                            msg="{{msg}}";
+                            if(msg!="")
+                              alert(msg);
+                            </script>					
+{% endblock %}	
